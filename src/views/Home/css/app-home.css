@@ -1,0 +1,195 @@
+.app-home {
+    width: 100%;
+    height: 100%;
+    background: url('/public/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    user-select: none;
+    pointer-events: none;
+}
+
+.app-home-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* 个人签名 */
+.app-personal-signature {
+    /* position: absolute; */
+    /* bottom: 20%; */
+    /* bottom: 20%; */
+    /* left: 2.0%; */
+    font-size: 0.6rem;
+    font-weight: 900;
+}
+
+/* 个人简介 */
+.app-personal-profile {
+    position: fixed;
+    left: 2.0%;
+    bottom: 0;
+    /* transform: translateY(70vh); */
+    width: 6rem;
+    font-weight: 700;
+    font-size: 0.20rem;
+    /* z-index: 8; */
+}
+
+/* 容器 */
+.app-profile-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 个人简介容器  */
+.app-profile-container p:nth-child(1) {
+    height: 0.65rem;
+}
+
+.app-profile-container p:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    pointer-events: all;
+}
+
+.app-profile-container p>span:nth-child(2) {
+    padding: 0.01rem 0.10rem;
+    border-radius: 0.08rem;
+    transition: 0.5s;
+    /* 禁止手势操作,解决移动端点击多次放大问题 */
+    touch-action: none;
+}
+
+.app-profile-container p>span:nth-child(2):hover {
+    background: #ffffff7e;
+
+}
+
+
+/* ---------------------------------------------- */
+
+/* 时间容器 */
+.app-home-time {
+    position: fixed;
+    /* 垂直居中 */
+    top: 50%;
+    right: 5.0%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 更轻的字体权重 */
+    font-weight: 300;
+}
+
+/* 时钟 */
+.app-home-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0.3rem 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: #eff1f549;
+}
+
+/* 时钟容器 */
+.app-home-clock-container {
+    position: relative;
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: #ffffff9f;
+}
+
+/* 时针、分针、秒针的设计 */
+.app-home-clock-container .app-home-clock-hour,
+.app-home-clock-container .app-home-clock-minute,
+.app-home-clock-container .app-home-clock-second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.03rem;
+    transform-origin: 50% 100%;
+    border-radius: 10%;
+    transition: 1s;
+}
+
+.app-home-clock-container .app-home-clock-hour {
+    margin-top: -1.2rem;
+    height: 1.2rem;
+    background-color: #eff1f5;
+    z-index: 3;
+}
+
+.app-home-clock-container .app-home-clock-minute {
+    margin-top: -1.6rem;
+    height: 1.6rem;
+    background-color: #eff1f5;
+    z-index: 2;
+}
+
+.app-home-clock-container .app-home-clock-second {
+    margin-top: -1.9rem;
+    height: 1.9rem;
+    background-color: #ffffff6e;
+    z-index: -1;
+}
+
+/* 星期 */
+.app-home-week {
+    font-size: 0.40rem;
+    font-weight: 900;
+}
+
+/* 年、月、日 */
+.app-home-year-month-date {
+    /* margin-top: -1vh; */
+    color: #eff1f5ad;
+}
+
+/* 动态-圆柱波形 */
+.app-home-trends {
+    margin-top: 0.1rem;
+    width: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.app-home-trends>div {
+    width: 0.06rem;
+    height: 0.5rem;
+    border-radius: 0.1rem;
+    background: #eff1f5c9;
+    animation: animation-trends ease 1s infinite alternate;
+    animation-delay: calc(var(--i)/10*1s);
+}
+
+
+.app-home-show-time>span {
+    margin: 0 0.05rem 0 0.05rem;
+}
+
+
+
+@keyframes animation-trends {
+    100% {
+        /* background: #91c5b0; */
+        transform: translateY(0.25rem);
+    }
+}
+
+@media all and (max-width: 576px) {
+    .app-home-time {
+        /* 垂直居中 */
+        left: 0;
+        right: 0;
+    }
+}

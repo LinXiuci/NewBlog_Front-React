@@ -1,0 +1,263 @@
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 6vh;
+    font-weight: bold;
+    font-family: '黑体';
+    transition: transform 0.5s;
+    box-shadow: 0 0 0.05rem var(--app-nav-box-shadow);
+    user-select: none;
+    z-index: 9;
+}
+
+.app-header.active {
+    box-shadow: none;
+}
+
+/* 页面导航栏上拉显示下拉隐藏 */
+.app-header-hide {
+    transform: translateY(-6vh);
+}
+
+ion-icon {
+    transform: translateY(20%);
+}
+
+
+.app-nav-logo,
+.app-nav {
+    margin: 0 0.3rem;
+}
+
+
+.app-nav {
+    display: flex;
+    align-items: center;
+}
+
+.app-nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.app-nav-menu li {
+    position: relative;
+    margin: 0 0.2rem;
+    list-style: none;
+}
+
+
+.app-nav-menu-name:hover {
+    color: var(--app-text-hover);
+}
+
+
+/* 下划线 */
+.app-nav-menu-name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* opacity: 0; */
+    border-bottom: 0.03rem solid var(--app-text-hover);
+    transform: scale(0, 1);
+    -webkit-transform: scale(0, 1);
+    transition: opacity 0.4s, transform 0.4s;
+    -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
+}
+
+/* 显示下划线 */
+.app-nav-menu li:hover .app-nav-menu-name::before {
+    /* opacity: 1; */
+    -webkit-transform: scale(1);
+    transform: scale(1) translateY(-20%);
+}
+
+/* 修改子菜单位置 */
+.app-nav-submenu {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    transition: 0.8s;
+}
+
+.app-nav-menu li:hover .app-nav-submenu {
+    transform: translate(-50%, 0%);
+}
+
+
+.app-nav-submenu p,
+.app-nav-submenu a {
+    display: block;
+    margin: 0 0 0.05rem 0;
+    padding: 0;
+    width: 0.9rem;
+    height: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    border-radius: 0.1rem;
+    border: 0.01rem solid transparent;
+    background: var(--app-card);
+}
+
+/* 移动到列表名时显示边框 */
+.app-nav-submenu p:hover,
+.app-nav-submenu a:hover {
+    border: 0.01rem solid;
+}
+
+.app-nav-submenu .app-nav-icon,
+.app-nav-submenu .app-nav-submenuname {
+    margin: 0 0.02rem 0 0.02rem;
+}
+
+/* 隐藏箭头 */
+.app-nav-submenu p>span:nth-child(3),
+.app-nav-submenu a>span:nth-child(3) {
+    display: none;
+}
+
+/* 切换按钮 */
+.app-nav-toggle {
+    display: none;
+    margin-right: 0.3rem;
+}
+
+
+
+
+@media all and (max-width: 768px) {
+
+    /* 去掉外边框格式 */
+    .app-nav {
+        margin: 0rem;
+    }
+
+    .app-nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* 使列表（.nav-menu li）垂直居中 */
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        height: 100%;
+        overflow-y: scroll;
+        transition: 0.3s;
+        background: var(--app-nav-background);
+    }
+
+    .app-nav-menu li {
+        width: 90%;
+    }
+
+    /* 点击 “切换按钮” 时菜单会回到屏幕的右边*/
+    .app-nav-menu.active {
+        right: 0;
+    }
+
+
+    /* 改变导航名颜色 */
+    .app-nav-menu-name {
+        color: #787878;
+    }
+
+    /* 关闭下划线 */
+    .app-nav-menu-name::before {
+        border-bottom: transparent;
+        transform: none;
+        -webkit-transform: none;
+        transition: none;
+        -webkit-transition: none;
+    }
+
+    /* 关闭下划线 */
+    .app-nav-menu li:hover .app-nav-menu-name::before {
+        -webkit-transform: none;
+        transform: none;
+    }
+
+    /* 子菜单 */
+    .app-nav-submenu {
+        position: relative;
+        /* 固定位置，禁止 :hover （第74行代码）*/
+        transform: translate(-50%, 0%);
+        border-radius: 0.30rem;
+        background: var(--app-card);
+        overflow: hidden;
+    }
+
+    .app-nav-submenu p,
+    .app-nav-submenu a {
+        /* 将 文字 和 span 向两边对齐 */
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 6vh;
+        /* 关闭边框 */
+        border: 0 solid transparent !important;
+    }
+
+
+    .app-nav-submenu p>span,
+    .app-nav-submenu a>span {
+        margin: 0 0.2rem !important;
+        color: var(--text-color);
+        line-height: 6vh;
+    }
+
+    /* 隐藏icon */
+    .app-nav-submenu p>span:nth-child(1),
+    .app-nav-submenu a>span:nth-child(1) {
+        display: none;
+    }
+
+
+    /* 显示箭头 */
+    .app-nav-submenu p>span:nth-child(3),
+    .app-nav-submenu a>span:nth-child(3) {
+        display: inline;
+    }
+
+    /* 切换按钮 */
+    .app-nav-toggle {
+        display: block;
+    }
+
+    /* 切换按钮下的样式 */
+    .app-nav-toggle>span {
+        display: block;
+        width: 18px;
+        height: 2.5px;
+        margin: 3.5px auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background: var(--app-toggle);
+    }
+
+    /* 显示遮罩 */
+    .app-nav-mask {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 25%;
+        height: 100%;
+        background: var(--app-mask);
+        transition: 0.3s;
+    }
+
+    /* 点击 “切换按钮” 时遮罩会回到屏幕的左边*/
+    .app-nav-mask.active {
+        left: 0;
+    }
+
+}

@@ -1,0 +1,151 @@
+.app-search {
+    margin: 0 0.2rem;
+    transition: 0.5s;
+}
+
+.app-search:hover {
+    color: var(--app-text-hover);
+}
+
+/*  */
+.app-search-mask {
+    /* position: fixed; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    color: var(--app-text-color);
+    background: var(--theme);
+    z-index: 9;
+    overflow: hidden;
+}
+
+/*  */
+.app-search-container {
+    position: absolute;
+    top: 2%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 85vw;
+    height: 4.5rem;
+}
+
+/*  */
+.app-search-nav {
+    margin: 0.1rem auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+
+/* 搜索框 */
+.app-search-input {
+    display: flex;
+    justify-content: space-between;
+    height: 6vh;
+}
+
+.app-search-input-container {
+    flex: 1;
+    padding: 0;
+    color: var(--text-color);
+    font-size: var(--font-size-18);
+    font-weight: 900;
+    height: inherit;
+    outline: none;
+    border: transparent;
+    box-sizing: border-box;
+    background: var(--theme);
+}
+
+/* 清空搜索框中的内容 */
+.app-search-clear-container {
+    width: 50px;
+    height: inherit;
+    box-sizing: border-box;
+}
+
+.app-search-clear {
+    position: relative;
+    height: inherit;
+    transition: 1.5s;
+    transform: translateY(-100vh);
+}
+
+
+.app-search-clear.active {
+    transform-origin: center;
+    transform: translateY(0);
+}
+
+.app-search-clear>span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 2%;
+    margin: auto;
+    display: block;
+    width: 18px;
+    height: 2px;
+    transition: 0.5s;
+    background: var(--text-tags);
+}
+
+.app-search-clear>span:hover {
+    background: var(--app-text-color);
+}
+
+.app-search-clear>span:nth-child(1) {
+    transform: rotate(45deg)
+}
+
+.app-search-clear>span:nth-child(2) {
+    transform: rotate(-45deg)
+}
+
+
+/* 搜索结果 */
+.app-search-results>li {
+    color: var(--text-tags);
+    transition: 1s;
+    padding: 0.02rem 0.1rem;
+}
+
+.app-search-results>li:hover {
+    color: var(--default-text-color);
+    border-radius: 0.05rem;
+    background: var(--app-text-hover);
+}
+
+
+/* 搜索计算出来的结果 */
+.app-search-count-results {
+    margin: 0.1rem auto;
+    font-size: 0.12rem;
+}
+
+
+
+
+@media all and (max-width: 576px) {
+
+    .app-search-results {
+        padding: 0;
+    }
+
+    .app-search-results>li {
+        /* 禁止文字换行 */
+        white-space: nowrap;
+        /* 超过部分用省略号(...)表示 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* -webkit-line-clamp设置在webkit浏览器下超出部分显示省略号 */
+        /* display: -webkit-box; */
+        -webkit-box-orient: vertical;
+        /*显示的行数*/
+        -webkit-line-clamp: 1;
+    }
+
+}

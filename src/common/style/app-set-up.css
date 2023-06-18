@@ -1,0 +1,31 @@
+.app-setup {
+    position: fixed;
+    right: 0;
+    bottom: 6.6%;
+    transform: translateX(100%);
+    transition: 0.3s;
+    user-select: none;
+    z-index: 9;
+}
+
+.app-setup.active {
+    transform: translateX(0%);
+}
+
+.app-setup>article {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 0.10rem;
+    margin-bottom: 0.05rem;
+    cursor: pointer;
+    background: var(--app-nav-background);
+}
+
+.app-setup>article:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+}
