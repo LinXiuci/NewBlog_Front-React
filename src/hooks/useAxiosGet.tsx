@@ -24,18 +24,24 @@ function useAxiosGet<T>(url: string, delay: number = 500): FetchResult<T> {
   useEffect(() => {
     let timeoutId: string | number | NodeJS.Timeout | undefined;
 
-    console.log(url);
     const fetchResults = async () => {
-      if (!url) {
-        // 需要清空搜索框的内容
-        setData([]);
-        return;
+      try {
+        if (!url) {
+          // 需要清空搜索框的内容
+          setData([]);
+          return;
+        }
+        setIsLoading(true);
+        const response = await fetch(
+          "http://localhost:8080/" + articleURI + url
+        );
+        const json = await response.json();
+        setData(json);
+        setIsLoading(false);
+      } catch (error: any) {
+        console.log(error);
+        setError(error);
       }
-      setIsLoading(true);
-      const response = await fetch("http://localhost:8080/" + articleURI + url);
-      const json = await response.json();
-      setData(json);
-      setIsLoading(false);
     };
 
     timeoutId = setTimeout(fetchResults, delay);

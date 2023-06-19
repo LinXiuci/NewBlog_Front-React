@@ -14,7 +14,7 @@ interface searchResultType {
   create_time: string;
   count_time: string;
   tags: string;
-  cover_img: string;
+  cover_img: string;   
   describe: string;
   content: string;
 }
@@ -75,7 +75,9 @@ function AppSearch({ disableScroll, enableScroll }: any) {
   }, [isShow]);
 
   // 监听 input 里的内容。若 value 长度为0，则输入框已被清空，关闭 button 则去掉。
-  const handleKeywordChange = (event: { target: { value: SetStateAction<string> } }): void => {
+  const handleKeywordChange = (event: {
+    target: { value: SetStateAction<string> };
+  }): void => {
     if (event.target.value.toString().trim().length === 0) {
       setQuery("");
       showClearButtonRef.current?.classList.remove("active");
@@ -112,7 +114,12 @@ function AppSearch({ disableScroll, enableScroll }: any) {
               showClearButtonRef={showClearButtonRef}
             />
             {/* 展示内容组件 */}
-            <DisplayContentComponent currentPage={1} pageDisplayContent={6} data={data} isLoading={isLoading}></DisplayContentComponent>
+            <DisplayContentComponent
+              currentPage={1}
+              pageDisplayContent={6}
+              data={data}
+              isLoading={isLoading}
+            ></DisplayContentComponent>
           </article>
         </section>
       )}
@@ -124,7 +131,9 @@ type InputComponentType = {
   query: string;
   inputRef: RefObject<HTMLInputElement>;
   showClearButtonRef: RefObject<HTMLDivElement>;
-  handleKeywordChange: (event: { target: { value: SetStateAction<string> } }) => void;
+  handleKeywordChange: (event: {
+    target: { value: SetStateAction<string> };
+  }) => void;
   handleClearKeyword: () => void;
 };
 
@@ -136,14 +145,31 @@ type InputComponentType = {
  * @param {Function}  handleClearKeyword  清空搜索框里的内容
  * @param {HTMLDivElement}  showClearButtonRef 清空文字按钮
  *  */
-const InputComponent = ({ inputRef, query, handleKeywordChange, handleClearKeyword, showClearButtonRef }: InputComponentType) => {
+const InputComponent = ({
+  inputRef,
+  query,
+  handleKeywordChange,
+  handleClearKeyword,
+  showClearButtonRef,
+}: InputComponentType) => {
   return (
     <nav className="app-search-input">
       {/* 搜索框 */}
-      <input className="app-search-input-container" type="text" placeholder="搜索..." ref={inputRef} value={query} onChange={handleKeywordChange} />
+      <input
+        className="app-search-input-container"
+        type="text"
+        placeholder="搜索..."
+        ref={inputRef}
+        value={query}
+        onChange={handleKeywordChange}
+      />
       {/* 清空搜索框内容 */}
       <div className="app-search-clear-container">
-        <div className="app-search-clear" onClick={handleClearKeyword} ref={showClearButtonRef}>
+        <div
+          className="app-search-clear"
+          onClick={handleClearKeyword}
+          ref={showClearButtonRef}
+        >
           <span></span>
           <span></span>
         </div>
@@ -166,7 +192,12 @@ interface displayContentComponentType {
  * @param {Array}  query 查询结束后的内容
  * @param {boolean} isLoading
  **/
-const DisplayContentComponent = ({ currentPage = 1, pageDisplayContent = 6, data, isLoading }: displayContentComponentType) => {
+const DisplayContentComponent = ({
+  currentPage = 1,
+  pageDisplayContent = 6,
+  data,
+  isLoading,
+}: displayContentComponentType) => {
   // 当前页
   const [current, setCurrent] = useState<number>(currentPage);
 
@@ -174,7 +205,10 @@ const DisplayContentComponent = ({ currentPage = 1, pageDisplayContent = 6, data
   const totalPage = Math.ceil(data.length / pageDisplayContent);
 
   // 计算当前页面展示的内容
-  const pageDisplayContents = data.slice((current - 1) * pageDisplayContent, current * pageDisplayContent);
+  const pageDisplayContents = data.slice(
+    (current - 1) * pageDisplayContent,
+    current * pageDisplayContent
+  );
 
   // 上一页
   const handlePreviousClick = (): void => {
