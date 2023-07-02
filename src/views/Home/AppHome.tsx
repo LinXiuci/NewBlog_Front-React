@@ -1,5 +1,4 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
-import AppFooter from "../../common/components/AppFooter/AppFooter";
 import AppIcon from "../../common/components/AppIcon/AppIcon";
 // import Typewriter from "./components/typewriter";
 
@@ -172,7 +171,6 @@ function AppHome() {
           </article>
         </section>
       </section>
-      <AppFooter></AppFooter>
     </main>
   );
 }
