@@ -32,9 +32,7 @@ function useAxiosGet<T>(url: string, delay: number = 500): FetchResult<T> {
           return;
         }
         setIsLoading(true);
-        const response = await fetch(
-          "http://localhost:8080/" + articleURI + url
-        );
+        const response = await fetch("http://localhost:8080/" + articleURI + url);
         const json = await response.json();
         setData(json);
         setIsLoading(false);

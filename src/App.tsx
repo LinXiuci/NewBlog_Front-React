@@ -7,12 +7,15 @@ import AppNavigationBar from "./common/components/AppNavigationBar/AppNavigation
 import AppSetup from "./common/components/AppSetup/AppSetup";
 // 导入节流函数
 import throttle from "./utils/throttle";
+import AppFooter from "./common/components/AppFooter/AppFooter";
 
 export default function App() {
   // 获取header元素
   const header = useRef<HTMLElement>(null);
   // 记录已滚动的滚动条高度位置
-  const [oldScrollTop, setOldScrollTop] = useState<number>(document.documentElement.scrollTop || document.body.scrollTop);
+  const [oldScrollTop, setOldScrollTop] = useState<number>(
+    document.documentElement.scrollTop || document.body.scrollTop
+  );
 
   /**
    * handleScroll 是一个滚动事件监听器，它在页面滚动时被调用。
@@ -25,8 +28,8 @@ export default function App() {
     // 获取导航栏的高度
     const headerHeight: number = header.current?.offsetHeight ?? 0;
 
-    console.log(currentScrollTop);
-    console.log("old", oldScrollTop);
+    // console.log(currentScrollTop);
+    // console.log("old", oldScrollTop);
 
     // 当当前的滚动位置 > 导航栏高度时，则添加样式 ；
     if (currentScrollTop > headerHeight) {
@@ -61,6 +64,7 @@ export default function App() {
       <main style={{ width: "100%", height: "100%" }} className="app-main">
         <Outlet></Outlet>
       </main>
+      <AppFooter></AppFooter>
     </>
   );
 }

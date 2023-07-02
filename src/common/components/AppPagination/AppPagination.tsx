@@ -13,14 +13,14 @@ interface paginationProps {
  *  */
 function AppPagination({ onPreviousClick, onNextClick, isPreviousDisabled, isNextDisabled }: paginationProps) {
   return (
-    <div>
+    <>
       <button className="page-link" onClick={onPreviousClick} disabled={isPreviousDisabled}>
         &lt;
       </button>
       <button className="page-link" onClick={onNextClick} disabled={isNextDisabled}>
         &gt;
       </button>
-    </div>
+    </>
   );
 }
 

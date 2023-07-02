@@ -14,7 +14,7 @@ interface searchResultType {
   create_time: string;
   count_time: string;
   tags: string;
-  cover_img: string;   
+  cover_img: string;
   describe: string;
   content: string;
 }
@@ -27,8 +27,9 @@ function AppSearch({ disableScroll, enableScroll }: any) {
   const [query, setQuery] = useState<string>("");
 
   // 根据 query 进行查询，查询结束后显示的内容
-  const { data, isLoading, error } = useAxiosGet<searchResultType>(query, 500);
-  // const [results, setResults] = useState<searchResultType[]>([]);
+  const { data, isLoading } = useAxiosGet<searchResultType>(query, 500);
+
+  // const [results, setResults] = useState<searchResultType[]>([])
   // const [isLoading, setIsLoading] = useState<boolean>(false);
   // 查询结束后的内容
   // useEffect(() => {
@@ -75,9 +76,7 @@ function AppSearch({ disableScroll, enableScroll }: any) {
   }, [isShow]);
 
   // 监听 input 里的内容。若 value 长度为0，则输入框已被清空，关闭 button 则去掉。
-  const handleKeywordChange = (event: {
-    target: { value: SetStateAction<string> };
-  }): void => {
+  const handleKeywordChange = (event: { target: { value: SetStateAction<string> } }): void => {
     if (event.target.value.toString().trim().length === 0) {
       setQuery("");
       showClearButtonRef.current?.classList.remove("active");
@@ -112,7 +111,7 @@ function AppSearch({ disableScroll, enableScroll }: any) {
               handleKeywordChange={handleKeywordChange}
               handleClearKeyword={handleClearKeyword}
               showClearButtonRef={showClearButtonRef}
-            />
+            ></InputComponent>
             {/* 展示内容组件 */}
             <DisplayContentComponent
               currentPage={1}
@@ -131,9 +130,7 @@ type InputComponentType = {
   query: string;
   inputRef: RefObject<HTMLInputElement>;
   showClearButtonRef: RefObject<HTMLDivElement>;
-  handleKeywordChange: (event: {
-    target: { value: SetStateAction<string> };
-  }) => void;
+  handleKeywordChange: (event: { target: { value: SetStateAction<string> } }) => void;
   handleClearKeyword: () => void;
 };
 
@@ -165,11 +162,7 @@ const InputComponent = ({
       />
       {/* 清空搜索框内容 */}
       <div className="app-search-clear-container">
-        <div
-          className="app-search-clear"
-          onClick={handleClearKeyword}
-          ref={showClearButtonRef}
-        >
+        <div className="app-search-clear" onClick={handleClearKeyword} ref={showClearButtonRef}>
           <span></span>
           <span></span>
         </div>
@@ -205,10 +198,7 @@ const DisplayContentComponent = ({
   const totalPage = Math.ceil(data.length / pageDisplayContent);
 
   // 计算当前页面展示的内容
-  const pageDisplayContents = data.slice(
-    (current - 1) * pageDisplayContent,
-    current * pageDisplayContent
-  );
+  const pageDisplayContents = data.slice((current - 1) * pageDisplayContent, current * pageDisplayContent);
 
   // 上一页
   const handlePreviousClick = (): void => {

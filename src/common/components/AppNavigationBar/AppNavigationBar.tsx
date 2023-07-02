@@ -87,6 +87,7 @@ function AppNavigationBar() {
     if (url) {
       // 200
       navigate(url);
+      handleCloseMenu();
     } else {
       // 404
     }
