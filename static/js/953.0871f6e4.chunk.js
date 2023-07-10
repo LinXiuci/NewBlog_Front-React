@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknew_blog_react=self.webpackChunknew_blog_react||[]).push([[953],{953:function(e,n,a){a.r(n);var c=a(184);n.default=function(){return(0,c.jsx)("main",{className:"Footmark",children:(0,c.jsx)("h1",{children:"\u8db3\u8ff9\u9875"})})}}}]);
+//# sourceMappingURL=953.0871f6e4.chunk.js.map
