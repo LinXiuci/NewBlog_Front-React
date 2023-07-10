@@ -10,9 +10,9 @@
     font-weight: bold;
     font-family: '黑体';
     transition: transform 0.5s;
-    box-shadow: 0 0 0.05rem var(--app-nav-box-shadow);
+    box-shadow: 0 0.01rem 0.05rem var(--app-nav-box-shadow);
     user-select: none;
-    z-index: 9;
+    z-index: 99;
 }
 
 .app-header.active {

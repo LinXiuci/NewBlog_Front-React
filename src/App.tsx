@@ -52,6 +52,13 @@ export default function App() {
     return () => document.removeEventListener("scroll", throttle(handleScroll, 500));
   }, [oldScrollTop]);
 
+  // 禁止鼠标右击出现菜单
+  // useEffect(() => {
+  //   document.addEventListener("contextmenu", function (e) {
+  //     e.preventDefault();
+  //   });
+  // }, []);
+
   return (
     <>
       {/* 搜索遮罩 */}
@@ -64,7 +71,7 @@ export default function App() {
       <main style={{ width: "100%", height: "100%" }} className="app-main">
         <Outlet></Outlet>
       </main>
-      <AppFooter></AppFooter>
+      {/* <AppFooter></AppFooter> */}
     </>
   );
 }

@@ -5,6 +5,7 @@ import AppIcon from "../../common/components/AppIcon/AppIcon";
 // 导入个人信息API
 import personalInformationAPI from "../../api/personalInformationAPI";
 import "./css/app-home.css";
+import AppFooter from "../../common/components/AppFooter/AppFooter";
 
 interface personalInformationType {
   author: string;
@@ -171,6 +172,7 @@ function AppHome() {
           </article>
         </section>
       </section>
+      <AppFooter></AppFooter>
     </main>
   );
 }

@@ -1,0 +1,142 @@
+/* ----------------------------- 分类组件 -----------------------------*/
+.app-album-classification-component {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%); 
+    width: 100%;
+    height: 7.1rem;
+    user-select: none;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+}
+
+/* 目录头部 header  */
+.app-album-classification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1%;
+    height: 15vh;
+    font-size: 0.4rem;
+    font-weight: 900;
+}
+
+/* 图片分类目录区  */
+.app-album-classification-container {
+    display: flex;
+    overflow: hidden;
+}
+
+/* 图片分类目录区 - item项 */
+.app-album-classification-content-item {
+    position: relative;
+    flex: 0 0 auto;
+    width: 6rem;
+    height: 5.5rem;
+    margin-right: 2%;
+    transition: transform 0.2s ease-in-out;
+}
+
+
+.app-album-classification-content-item:hover {
+    transform: scale(1.01);
+}
+
+.app-album-classification-content-item:last-child {
+    margin-right: 0;
+}
+
+/* 背景图片 */
+.app-album-classification-content-item>div:nth-child(1) {
+    width: 100%;
+    height: 4.5rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 背景图片的标题 */
+.app-album-classification-content-item>div:nth-child(2) {
+    font-size: 0.3rem;
+    font-weight: 900;
+    line-height: calc(5.5rem - 4.5rem);
+    height: calc(5.5rem - 4.5rem);
+}
+
+
+/*  点击左右移动 */
+.app-album-classification-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 2% auto;
+}
+
+.app-album-classification-footer>button {
+    margin: 0 1%;
+    color: var(--text-color);
+    font-size: 0.5rem;
+    line-height: 0.55rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: transparent;
+    outline: transparent;
+    border: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.app-album-classification-footer>button:nth-child(1).active {
+    color: var(--text-tags);
+}
+
+.app-album-classification-footer>button:nth-child(2).active {
+    color: var(--text-tags);
+}
+
+.app-album-classification-footer>button:hover {
+    outline: 0.02rem solid #ffffff;
+}
+
+
+@media all and (max-width: 576px) {
+
+    .app-album-classification-component {
+        top: 0;
+        transform: translateY(0);
+
+    }
+
+    /* 图片分类目录区  */
+    .app-album-classification-container {
+        flex-wrap: wrap;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* 图片分类目录区 - item项 */
+    .app-album-classification-content-item {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 5% 0;
+        background: var(--linear-gradient-1);
+        border-radius: 0.2rem;
+    }
+
+    /* 背景图片 */
+    .app-album-classification-content-item>div:nth-child(1) {
+        width: 100%;
+        border-radius: 0.2rem 0.2rem 0 0;
+    }
+
+    /* 背景图片 */
+    .app-album-classification-content-item>div:nth-child(2) {
+        text-indent: 0.1rem;
+    }
+
+    .app-album-classification-footer>button {
+        display: none;
+    }
+
+}

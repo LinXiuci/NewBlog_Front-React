@@ -7,8 +7,12 @@ const AppHome = lazy(() => import("../views/Home/AppHome"));
 /* 博客栏 */
 const AppContent = lazy(() => import("../views/Content/AppContent"));
 const AppFiling = lazy(() => import("../views/Filing/AppFiling"));
-/* 影音栏 */
+
+/* 相册页 */
 const AppAlbum = lazy(() => import("../views/Album/AppAlbum"));
+const AppAlbumClassification = lazy(() => import("../views/Album/page/classification-page"));
+const AppAlbumdetailed = lazy(() => import("../views/Album/page/detailed-page"));
+
 const AppFootmark = lazy(() => import("../views/Footmark/AppFootmark"));
 const AppWuPin = lazy(() => import("../views/WuPin/AppWuPin"));
 /* 作者栏 */
@@ -36,6 +40,8 @@ function AppRouter() {
             <Route path="app-friend" element={<AppFriend />}></Route>
           </Route>
           {/* <Route path="/*" element={<Exception404 />}></Route> */}
+          <Route path="/app-album/classification" element={<AppAlbumClassification />}></Route>
+          <Route path="/app-album/classification/detailed" element={<AppAlbumdetailed />}></Route>
         </Routes>
       </BrowserRouter>
     </Suspense>

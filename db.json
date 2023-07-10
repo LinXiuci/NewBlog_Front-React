@@ -216,5 +216,60 @@
       "key": 13,
       "url": "https://github.com/VenchiXie/image/blob/main/img/ikun.jpg?raw=true"
     }
+  ],
+  "banner-api": [
+    {
+      "key": "1",
+      "url": "https://github.com/VenchiXie/image/blob/main/img/banner1.jpg?raw=true"
+    },
+    {
+      "key": "2",
+      "url": "https://github.com/VenchiXie/image/blob/main/img/banner2.jpg?raw=true"
+    },
+    {
+      "key": "3",
+      "url": "https://github.com/VenchiXie/image/blob/main/img/banner3.jpg?raw=true"
+    }
+  ],
+  "app-album-api": [
+    {
+      "key": "1",
+      "title": "风格1",
+      "url": "https://hachiiiiiiii.co/assets/images/schale_thumb.webp",
+      "image": [
+        {
+          "key": 1,
+          "src": "https://github.com/VenchiXie/image/blob/main/img/1.jpg?raw=true"
+        },
+        {
+          "key": 2,
+          "src": "https://github.com/VenchiXie/image/blob/main/img/2.jpg?raw=true"
+        },
+        {
+          "key": 3,
+          "src": "https://github.com/VenchiXie/image/blob/main/img/3.jpg?raw=true"
+        }
+      ]
+    },
+    {
+      "key": "2",
+      "title": "风格2",
+      "url": "https://hachiiiiiiii.co/assets/images/KR_PIS.webp"
+    },
+    {
+      "key": "3",
+      "title": "风格3",
+      "url": "https://hachiiiiiiii.co/assets/images/millenniumID.webp"
+    },
+    {
+      "key": "4",
+      "title": "风格4",
+      "url": "https://hachiiiiiiii.co/assets/images/thumbnail_schale.webp"
+    },
+    {
+      "key": "5",
+      "title": "风格5",
+      "url": "https://hachiiiiiiii.co/assets/images/MillenniumCPU.webp"
+    }
   ]
 }

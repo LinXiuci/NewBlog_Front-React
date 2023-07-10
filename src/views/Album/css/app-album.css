@@ -1,7 +1,105 @@
 .app-album {
-    user-select: none;
+    position: relative;
     height: 100%;
+    overflow: hidden;
+    user-select: none;
 }
+
+
+.app-album-banner-container {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* 遮罩 */
+.app-album::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+
+.app-album-banner {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 作品展示区 文字区 */
+.app-album-works-display-container {
+    position: fixed;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 4rem;
+    z-index: 9;
+}
+
+.app-album-works-display-title,
+.app-album-works-display-text {
+    color: var(--app-text-color);
+}
+
+.app-album-works-display-title {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+}
+
+/* 分隔线 */
+.app-album-line {
+    margin: 0.1rem 0;
+    width: 20%;
+    border: 2px solid #ffffff;
+    transition: all 1s ease-in-out;
+}
+
+.app-album-works-display-container:hover .app-album-line {
+    width: 95%;
+}
+
+/* 文本 */
+.app-album-works-display-text {
+    margin-top: 0.8rem;
+}
+
+/* 点击进入 button */
+.app-album-works-display-enter {
+    margin-top: 0.2rem;
+    width: 35%;
+    color: #212121;
+    font-size: 0.25rem;
+    text-align: center;
+    font-weight: 900;
+    padding: 0.06rem;
+    border-radius: 0.05rem;
+    background: #ffffff;
+    transition: transform 0.5s;
+}
+
+.app-album-works-display-enter:hover {
+    transform: scale(1.02);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .app-album-main {
     margin: auto;
@@ -9,6 +107,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 
 /* 图片预览组件 */
 .app-album-preview {
@@ -41,7 +140,7 @@
 
 /* Loading */
 .lazy-image-loading {
- text-align: center;
+    text-align: center;
 }
 
 
@@ -116,12 +215,20 @@
     outline: none;
 }
 
-
 .preview-close:hover {
     color: #eff1f5;
 }
 
+@media all and (max-width: 768px) {}
+
 @media all and (max-width: 576px) {
+
+    /* 图片分类容器 */
+    .app-album-classification-container {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
     .app-album-preview {
         width: 95%;
     }
