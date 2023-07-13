@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
-
 import { getAlbumResources } from "../../../api/app-album-api";
 
 import "../css/classification-page.css";
+
 interface ClassificationResultsType {
   key: string;
   title: string;
   url: string;
 }
-
 /**
  * @description 图片分类组件
  *  */
@@ -27,15 +26,19 @@ function ClassificationPage() {
   // 获取分类背景图资源时出现错误
   const [error, setError] = useState<Error | null>(null);
 
+  const [loading, setLoading] = useState<boolean>(true);
+
   // 请求分类背景图资源
   const fetchResults = async () => {
     const { results, error } = await getAlbumResources<ClassificationResultsType>();
     setData(results);
     setError(error);
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchResults();
+    console.log(error);
   }, []);
 
   // 操作图片分类目录区的元素
@@ -98,7 +101,8 @@ function ClassificationPage() {
             className="app-album-classification-content-item"
             onClick={() => handleNavigate(item.key)}
           >
-            <div style={{ backgroundImage: `URL(${item.url})` }}></div>
+            {loading && <div className="app-album-classification-loading">Loading...</div>}
+            {<div style={{ opacity: loading ? 0 : 1, backgroundImage: `URL(${item.url})` }}></div>}
             <div>{item.title}</div>
           </article>
         ))}
@@ -117,42 +121,3 @@ function ClassificationPage() {
 }
 
 export default ClassificationPage;
-
-/* 图片分类组件 */
-// .app-album-classification-component {
-//   height: 100%;
-// }
-// /* 图片分类容器 */
-// .app-album-classification-container {
-//   margin: 6vh 10% 0 10%;
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   /* grid-template-rows: repeat(); */
-//   height: 100%;
-//   align-items: center;
-//   text-align: center;
-//   gap: 10px;
-// }
-// /* 图片分类列表项 */
-// .app-album-classification-item {
-//   border: 1px solid;
-// }
-// function ClassificationComponent() {
-//   return (
-//     <main className="app-album-classification-component">
-//       <section className="app-album-classification-container">
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//         <article className="app-album-classification-item">1</article>
-//       </section>
-//     </main>
-//   );
-// }

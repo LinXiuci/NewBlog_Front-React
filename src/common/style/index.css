@@ -44,7 +44,8 @@ body[theme-mode='dark'] {
     --text-color: #eff1f5;
     --app-nav-background: #181818;
     --app-toggle: #eff1f5;
-    --app-card: #1D1D1D;
+    /* --app-card: #1D1D1D; */
+    --app-card: #080C13;
     --card-item: #202020;
 }
 

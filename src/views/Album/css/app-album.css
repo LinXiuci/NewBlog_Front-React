@@ -101,47 +101,8 @@
 
 
 
-.app-album-main {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 
-/* 图片预览组件 */
-.app-album-preview {
-    margin-top: 6vh;
-    width: 80%;
-    box-sizing: border-box;
-}
-
-/* 懒加载图片组件 */
-.lazy-image-component {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    width: 30%;
-    margin: 1% 1.65%;
-}
-
-/* 图片占满标签 */
-.lazy-image-component img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 1%;
-    transition: transform, opacity, 0.5s ease-in-out;
-}
-
-.lazy-image-component:hover img {
-    transform: scale(1.2);
-}
-
-/* Loading */
-.lazy-image-loading {
-    text-align: center;
-}
 
 
 /* 分页上下页 */
@@ -174,50 +135,11 @@
 }
 
 
-/* 预览覆盖层 */
-.preview-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    backdrop-filter: blur(100px);
-    box-sizing: border-box;
-    z-index: 9;
-}
 
-/* 图片预览容器 */
-.preview-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 85%;
-    max-height: 85%;
-    z-index: 10;
-}
 
-/* 关闭按钮 */
-.preview-close {
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    padding: 0.1rem;
-    /* 背景透明 */
-    background: transparent;
-    border: none;
-    /* 字体颜色 */
-    color: rgba(153, 153, 153, 0.767);
-    font-size: var(--font-size-16);
-    font-weight: 700;
-    transition: 0.2s;
-    cursor: pointer;
-    outline: none;
-}
 
-.preview-close:hover {
-    color: #eff1f5;
-}
+
+
 
 @media all and (max-width: 768px) {}
 
@@ -233,9 +155,4 @@
         width: 95%;
     }
 
-    .lazy-image-component {
-        width: 100%;
-        height: 100%;
-        margin: 5% auto;
-    }
 }

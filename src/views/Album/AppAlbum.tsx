@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, NavigateFunction} from "react-router-dom";
+import { useNavigate, NavigateFunction } from "react-router-dom";
 import { getBannerResources } from "../../api/banner-api";
 import "./css/app-album.css";
 
@@ -11,6 +11,8 @@ interface bannerResourcesType {
  * @description 公共页面 - 相册页
  *  */
 function AppAlbum() {
+  // 导航跳转
+  const navigate: NavigateFunction = useNavigate();
   // 获取 banner 资源
   const [data, setData] = useState<bannerResourcesType[]>([]);
   // 获取 banner 资源时出现错误
@@ -59,9 +61,6 @@ function AppAlbum() {
       window.removeEventListener("resize", handleResize);
     };
   }, [currentIndex]);
-
-  // 导航跳转
-  const navigate: NavigateFunction = useNavigate();
 
   // if (error) {
   //   return <section>Error:{error.message}</section>;

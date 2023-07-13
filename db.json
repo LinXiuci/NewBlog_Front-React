@@ -162,73 +162,77 @@
   "images-api": [
     {
       "key": 111,
-      "url": "https://upload-bbs.miyoushe.com/upload/2023/06/21/75276539/484c1f5d3a82cee1ad10c1678f281d39_5480526494128163813.jpg"
+      "url": "https://venchixie.github.io/imgs/肖宫.gif"
     },
     {
       "key": 1,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/1.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/1.jpg"
     },
     {
       "key": 2,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/2.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/2.jpg"
     },
     {
       "key": 3,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/3.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/3.jpg"
     },
     {
       "key": 4,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/4.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/4.jpg"
     },
     {
       "key": 5,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/5.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/5.jpg"
     },
     {
       "key": 6,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/6.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/6.jpg"
     },
     {
       "key": 7,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/7.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/7.jpg"
     },
     {
       "key": 8,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/8.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/8.jpg"
     },
     {
       "key": 9,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/9.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/9.jpg"
     },
     {
       "key": 10,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/10.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/10.jpg"
     },
     {
       "key": 11,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/4063_f53e0d5532.gif?raw=true"
+      "url": "https://venchixie.github.io/imgs/background.jpg"
     },
     {
       "key": 12,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/background.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/banner1.jpg"
     },
     {
       "key": 13,
-      "url": "https://github.com/VenchiXie/image/blob/main/img/ikun.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/banner2.jpg"
+    },
+    {
+      "key": 14,
+      "url": "https://venchixie.github.io/imgs/banner3.jpg"
     }
   ],
   "banner-api": [
     {
       "key": "1",
-      "url": "https://github.com/VenchiXie/image/blob/main/img/banner1.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/banner1.jpg"
     },
     {
       "key": "2",
-      "url": "https://github.com/VenchiXie/image/blob/main/img/banner2.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/banner2.jpg"
     },
     {
       "key": "3",
-      "url": "https://github.com/VenchiXie/image/blob/main/img/banner3.jpg?raw=true"
+      "url": "https://venchixie.github.io/imgs/banner3.jpg"
     }
   ],
   "app-album-api": [
@@ -236,40 +240,228 @@
       "key": "1",
       "title": "风格1",
       "url": "https://hachiiiiiiii.co/assets/images/schale_thumb.webp",
-      "image": [
+      "images": [
+        {
+          "key": 111,
+          "src": "https://venchixie.github.io/imgs/肖宫.gif"
+        },
         {
           "key": 1,
-          "src": "https://github.com/VenchiXie/image/blob/main/img/1.jpg?raw=true"
+          "src": "https://venchixie.github.io/imgs/1.jpg"
         },
         {
           "key": 2,
-          "src": "https://github.com/VenchiXie/image/blob/main/img/2.jpg?raw=true"
+          "src": "https://venchixie.github.io/imgs/2.jpg"
         },
         {
           "key": 3,
-          "src": "https://github.com/VenchiXie/image/blob/main/img/3.jpg?raw=true"
+          "src": "https://venchixie.github.io/imgs/3.jpg"
+        },
+        {
+          "key": 4,
+          "src": "https://venchixie.github.io/imgs/4.jpg"
+        },
+        {
+          "key": 5,
+          "src": "https://venchixie.github.io/imgs/5.jpg"
+        },
+        {
+          "key": 6,
+          "src": "https://venchixie.github.io/imgs/6.jpg"
+        },
+        {
+          "key": 7,
+          "src": "https://venchixie.github.io/imgs/7.jpg"
+        },
+        {
+          "key": 8,
+          "src": "https://venchixie.github.io/imgs/8.jpg"
+        },
+        {
+          "key": 9,
+          "src": "https://venchixie.github.io/imgs/9.jpg"
+        },
+        {
+          "key": 10,
+          "src": "https://venchixie.github.io/imgs/10.jpg"
+        },
+        {
+          "key": 11,
+          "src": "https://venchixie.github.io/imgs/background.jpg"
+        },
+        {
+          "key": 12,
+          "src": "https://venchixie.github.io/imgs/banner1.jpg"
+        },
+        {
+          "key": 13,
+          "src": "https://venchixie.github.io/imgs/banner2.jpg"
+        },
+        {
+          "key": 14,
+          "src": "https://venchixie.github.io/imgs/banner3.jpg"
         }
       ]
     },
     {
       "key": "2",
       "title": "风格2",
-      "url": "https://hachiiiiiiii.co/assets/images/KR_PIS.webp"
+      "url": "https://hachiiiiiiii.co/assets/images/KR_PIS.webp",
+      "images": [
+        {
+          "key": 111,
+          "src": "https://venchixie.github.io/imgs/肖宫.gif"
+        },
+        {
+          "key": 1,
+          "src": "https://venchixie.github.io/imgs/1.jpg"
+        },
+        {
+          "key": 2,
+          "src": "https://venchixie.github.io/imgs/2.jpg"
+        },
+        {
+          "key": 3,
+          "src": "https://venchixie.github.io/imgs/3.jpg"
+        },
+        {
+          "key": 4,
+          "src": "https://venchixie.github.io/imgs/4.jpg"
+        },
+        {
+          "key": 5,
+          "src": "https://venchixie.github.io/imgs/5.jpg"
+        }
+      ]
     },
     {
       "key": "3",
       "title": "风格3",
-      "url": "https://hachiiiiiiii.co/assets/images/millenniumID.webp"
+      "url": "https://hachiiiiiiii.co/assets/images/millenniumID.webp",
+      "images": [
+        {
+          "key": 111,
+          "src": "https://venchixie.github.io/imgs/肖宫.gif"
+        },
+        {
+          "key": 1,
+          "src": "https://venchixie.github.io/imgs/1.jpg"
+        },
+        {
+          "key": 2,
+          "src": "https://venchixie.github.io/imgs/2.jpg"
+        },
+        {
+          "key": 3,
+          "src": "https://venchixie.github.io/imgs/3.jpg"
+        },
+        {
+          "key": 4,
+          "src": "https://venchixie.github.io/imgs/4.jpg"
+        },
+        {
+          "key": 5,
+          "src": "https://venchixie.github.io/imgs/5.jpg"
+        },
+        {
+          "key": 6,
+          "src": "https://venchixie.github.io/imgs/6.jpg"
+        },
+        {
+          "key": 7,
+          "src": "https://venchixie.github.io/imgs/7.jpg"
+        },
+        {
+          "key": 8,
+          "src": "https://venchixie.github.io/imgs/8.jpg"
+        }
+      ]
     },
     {
       "key": "4",
       "title": "风格4",
-      "url": "https://hachiiiiiiii.co/assets/images/thumbnail_schale.webp"
+      "url": "https://hachiiiiiiii.co/assets/images/thumbnail_schale.webp",
+      "images": [
+        {
+          "key": 6,
+          "src": "https://venchixie.github.io/imgs/6.jpg"
+        },
+        {
+          "key": 7,
+          "src": "https://venchixie.github.io/imgs/7.jpg"
+        },
+        {
+          "key": 8,
+          "src": "https://venchixie.github.io/imgs/8.jpg"
+        },
+        {
+          "key": 9,
+          "src": "https://venchixie.github.io/imgs/9.jpg"
+        },
+        {
+          "key": 10,
+          "src": "https://venchixie.github.io/imgs/10.jpg"
+        },
+        {
+          "key": 11,
+          "src": "https://venchixie.github.io/imgs/background.jpg"
+        },
+        {
+          "key": 12,
+          "src": "https://venchixie.github.io/imgs/banner1.jpg"
+        },
+        {
+          "key": 13,
+          "src": "https://venchixie.github.io/imgs/banner2.jpg"
+        },
+        {
+          "key": 14,
+          "src": "https://venchixie.github.io/imgs/banner3.jpg"
+        }
+      ]
     },
     {
       "key": "5",
       "title": "风格5",
-      "url": "https://hachiiiiiiii.co/assets/images/MillenniumCPU.webp"
+      "url": "https://hachiiiiiiii.co/assets/images/MillenniumCPU.webp",
+      "images": [
+        {
+          "key": 111,
+          "src": "https://venchixie.github.io/imgs/肖宫.gif"
+        },
+        {
+          "key": 1,
+          "src": "https://venchixie.github.io/imgs/1.jpg"
+        },
+        {
+          "key": 2,
+          "src": "https://venchixie.github.io/imgs/2.jpg"
+        },
+        {
+          "key": 3,
+          "src": "https://venchixie.github.io/imgs/3.jpg"
+        },
+        {
+          "key": 4,
+          "src": "https://venchixie.github.io/imgs/4.jpg"
+        },
+        {
+          "key": 11,
+          "src": "https://venchixie.github.io/imgs/background.jpg"
+        },
+        {
+          "key": 12,
+          "src": "https://venchixie.github.io/imgs/banner1.jpg"
+        },
+        {
+          "key": 13,
+          "src": "https://venchixie.github.io/imgs/banner2.jpg"
+        },
+        {
+          "key": 14,
+          "src": "https://venchixie.github.io/imgs/banner3.jpg"
+        }
+      ]
     }
   ]
 }

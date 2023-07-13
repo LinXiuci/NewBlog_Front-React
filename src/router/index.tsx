@@ -23,7 +23,8 @@ const AppFriend = lazy(() => import("../views/Friend/AppFriend"));
 function AppRouter() {
   return (
     <Suspense fallback={<AppIconLoading />}>
-      <BrowserRouter>
+      {/*  basename={process.env.PUBLIC_URL} */}
+      <HashRouter>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<AppHome />}></Route>
@@ -43,7 +44,7 @@ function AppRouter() {
           <Route path="/app-album/classification" element={<AppAlbumClassification />}></Route>
           <Route path="/app-album/classification/detailed" element={<AppAlbumdetailed />}></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Suspense>
   );
 }

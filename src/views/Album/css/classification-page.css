@@ -2,7 +2,7 @@
 .app-album-classification-component {
     position: absolute;
     top: 45%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     width: 100%;
     height: 7.1rem;
     user-select: none;
@@ -25,6 +25,8 @@
 .app-album-classification-container {
     display: flex;
     overflow: hidden;
+    height: 5.5rem;
+
 }
 
 /* 图片分类目录区 - item项 */
@@ -32,7 +34,7 @@
     position: relative;
     flex: 0 0 auto;
     width: 6rem;
-    height: 5.5rem;
+    height: inherit;
     margin-right: 2%;
     transition: transform 0.2s ease-in-out;
 }
@@ -61,6 +63,15 @@
     font-weight: 900;
     line-height: calc(5.5rem - 4.5rem);
     height: calc(5.5rem - 4.5rem);
+}
+
+.app-album-classification-loading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: 4.5rem !important;
+
+    transform: translate(-50%);
 }
 
 
@@ -112,6 +123,7 @@
     .app-album-classification-container {
         flex-wrap: wrap;
         width: 95%;
+        height: auto;
         margin: 0 auto;
     }
 
@@ -119,6 +131,8 @@
     .app-album-classification-content-item {
         flex: 0 0 100%;
         width: 100%;
+        /* height: auto; */
+        height: 5.5rem;
         margin: 5% 0;
         background: var(--linear-gradient-1);
         border-radius: 0.2rem;
