@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import AppSearch from "../AppSearch/AppSearch";
 import AppIcon from "../AppIcon/AppIcon";
-import navigations from "../../../utils/navigations";
-import "../../style/app-navigation-bar.css";
+import navigations from "../../utils/navigations";
+import "../style/app-navigation-bar.css";
 
 /***
  * @description 公共组件 - 导航栏组件

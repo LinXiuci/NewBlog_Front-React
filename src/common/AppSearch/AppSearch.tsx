@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef, RefObject, SetStateAction } from "react";
 import AppPagination from "../AppPagination/AppPagination";
 import AppTextLoading from "../AppLoading/AppTextLoading";
-
 // import artivleListAPI from "../../../api/artivleListAPI";
-
-import useAxiosGet from "../../../hooks/useAxiosGet";
-import "../../style/app-search.css";
+import useAxiosGet from "../../hooks/useAxiosGet";
+import "../style/app-search.css";
 
 interface searchResultType {
   key: string;

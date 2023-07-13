@@ -1,22 +1,3 @@
-interface personalInformationType {
-  author: string;
-  avatar: string;
-  introduction: (
-    | {
-        key: number;
-        title: string;
-        text: string;
-        name?: undefined;
-      }
-    | {
-        key: string;
-        name: string;
-        text: string;
-        title?: undefined;
-      }
-  )[];
-}
-
 const personalInformationAPI: any = {
   author: "Venchi",
   avatar: "",

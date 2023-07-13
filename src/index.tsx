@@ -2,10 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // 导入router
 import AppRouter from "./router";
-import reportWebVitals from "./reportWebVitals";
 // 导入自适应布局
-import "./utils/adaptiveLayout";
+// import "./utils/adaptive-layout";
+import { configureResponsiveLayout } from "./utils/adaptive-layout";
+
+import reportWebVitals from "./reportWebVitals";
 import "./common/style/index.css";
+
+// 使用 configureResponsiveLayout 函数
+configureResponsiveLayout(document, window);
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(

@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
-import AppIconLoading from "../common/components/AppLoading/AppIconLoading";
+import AppIconLoading from "../common/AppLoading/AppIconLoading";
 
 const App = lazy(() => import("../App"));
 const AppHome = lazy(() => import("../views/Home/AppHome"));

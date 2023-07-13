@@ -2,12 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 // 导入公共组件-导航栏组件
-import AppNavigationBar from "./common/components/AppNavigationBar/AppNavigationBar";
+import AppNavigationBar from "./common/AppNavigationBar/AppNavigationBar";
 // 侧边小工具
-import AppSetup from "./common/components/AppSetup/AppSetup";
+import AppSetup from "./common/AppSetup/AppSetup";
 // 导入节流函数
 import throttle from "./utils/throttle";
-import AppFooter from "./common/components/AppFooter/AppFooter";
+import AppFooter from "./common/AppFooter/AppFooter";
 
 export default function App() {
   // 获取header元素

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import tabs from "../../../utils/tabs";
-import "../../style/app-footer.css";
+import tabs from "../../utils/footer-tabs";
+import "../style/app-footer.css";
 
 interface PropsType {
   items: {

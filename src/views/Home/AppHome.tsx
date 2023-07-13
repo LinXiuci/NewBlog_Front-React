@@ -1,11 +1,11 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
-import AppIcon from "../../common/components/AppIcon/AppIcon";
+import AppIcon from "../../common/AppIcon/AppIcon";
 // import Typewriter from "./components/typewriter";
 
 // 导入个人信息API
 import personalInformationAPI from "../../api/personalInformationAPI";
 import "./css/app-home.css";
-import AppFooter from "../../common/components/AppFooter/AppFooter";
+import AppFooter from "../../common/AppFooter/AppFooter";
 
 interface personalInformationType {
   author: string;

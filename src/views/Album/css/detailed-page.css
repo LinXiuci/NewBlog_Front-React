@@ -56,7 +56,7 @@
 /* Loading */
 .app-album-lazy-image-loading {
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     left: 50%;
     transform: translate(-50%);
 }
@@ -109,8 +109,6 @@
 .app-album-preview-close:hover {
     color: #eff1f5;
 }
-
-
 
 /*  点击上下移动 */
 .app-album-detial-page-footer>button {

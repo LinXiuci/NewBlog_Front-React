@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import throttle from "../../../utils/throttle";
-import "../../style/app-set-up.css";
+import throttle from "../../utils/throttle";
+import "../style/app-set-up.css";
 
 /***
  * @description 公共组件 - 页面设置组件

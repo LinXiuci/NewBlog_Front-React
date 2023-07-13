@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import "../../style/app-loading.css"
+import "../style/app-loading.css"
 
 
 /***
