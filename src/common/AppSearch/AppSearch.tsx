@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, RefObject, SetStateAction } from "react";
 import AppPagination from "../AppPagination/AppPagination";
 import AppTextLoading from "../AppLoading/AppTextLoading";
-// import artivleListAPI from "../../../api/artivleListAPI";
-import useAxiosGet from "../../hooks/useAxiosGet";
+import debounce from "../../utils/debounce";
+import { getSearchResources } from "../../api/app-search-api";
 import "../style/app-search.css";
 
 interface searchResultType {
@@ -21,36 +21,36 @@ interface searchResultType {
  * @description 公共组件 - 搜索组件
  *  */
 function AppSearch({ disableScroll, enableScroll }: any) {
-  // 查询
-  const [query, setQuery] = useState<string>("");
+  // 关键字
+  const [keywords, setkeywords] = useState<string>("");
+  // 根据 keywords 进行查询，查询结束后显示的内容  //
+  const [data, setData] = useState<searchResultType[]>([]);
+  // error
+  const [error, setError] = useState<Error | null>(null);
+  // loading
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // 根据 query 进行查询，查询结束后显示的内容
-  const { data, isLoading } = useAxiosGet<searchResultType>(query, 500);
+  // 根据 keywords 请求文章资源
+  const fetchResults = debounce(async () => {
+    if (!keywords) {
+      setData([]);
+      return;
+    }
+    setIsLoading(true);
+    const { results, error } = await getSearchResources<searchResultType>(keywords);
+    setData(results);
+    setIsLoading(false);
+    setError(error);
+  }, 1000);
 
-  // const [results, setResults] = useState<searchResultType[]>([])
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
-  // 查询结束后的内容
-  // useEffect(() => {
-  //   const fetchResults = async () => {
-  //     if (!query) {
-  //       setResults([]);
-  //       return;
-  //     }
-  //     setIsLoading(true);
-  //     const response = await fetch(`http://localhost:8080/articles?title_like=${query}`);
-  //     const json = await response.json();
-  //     setResults(json);
-  //     setIsLoading(false);
-  //   };
-  //   fetchResults();
-  // }, [query]);
+  useEffect(() => {
+    fetchResults();
+  }, [keywords]);
 
   // 是否显示搜索框
   const [isShow, setShow] = useState<boolean>(false);
-
   // 操作搜索框元素
   const inputRef = useRef<HTMLInputElement>(null);
-
   // 清空文字按钮元素
   const showClearButtonRef = useRef<HTMLDivElement>(null);
 
@@ -76,18 +76,18 @@ function AppSearch({ disableScroll, enableScroll }: any) {
   // 监听 input 里的内容。若 value 长度为0，则输入框已被清空，关闭 button 则去掉。
   const handleKeywordChange = (event: { target: { value: SetStateAction<string> } }): void => {
     if (event.target.value.toString().trim().length === 0) {
-      setQuery("");
+      setkeywords("");
       showClearButtonRef.current?.classList.remove("active");
     } else {
-      setQuery(event.target.value.toString().trim());
+      setkeywords(event.target.value.toString().trim());
       showClearButtonRef.current?.classList.add("active");
     }
   };
 
   // 清空搜索框里的内容
   const handleClearKeyword = (): void => {
-    if (query.length === 0) return;
-    setQuery("");
+    if (keywords.length === 0) return;
+    setkeywords("");
     showClearButtonRef.current?.classList.remove("active");
   };
 
@@ -105,7 +105,7 @@ function AppSearch({ disableScroll, enableScroll }: any) {
             {/* 搜索框组件 */}
             <InputComponent
               inputRef={inputRef}
-              query={query}
+              keywords={keywords}
               handleKeywordChange={handleKeywordChange}
               handleClearKeyword={handleClearKeyword}
               showClearButtonRef={showClearButtonRef}
@@ -125,7 +125,7 @@ function AppSearch({ disableScroll, enableScroll }: any) {
 }
 
 type InputComponentType = {
-  query: string;
+  keywords: string;
   inputRef: RefObject<HTMLInputElement>;
   showClearButtonRef: RefObject<HTMLDivElement>;
   handleKeywordChange: (event: { target: { value: SetStateAction<string> } }) => void;
@@ -134,19 +134,9 @@ type InputComponentType = {
 
 /**
  * @description 组件 - 输入框组件
- * @param {HTMLInputElement}  inputRef  操作搜索框元素
- * @param {string}  query  关键字
- * @param {Function}  handleKeywordChange handleKeywordChange
- * @param {Function}  handleClearKeyword  清空搜索框里的内容
- * @param {HTMLDivElement}  showClearButtonRef 清空文字按钮
  *  */
-const InputComponent = ({
-  inputRef,
-  query,
-  handleKeywordChange,
-  handleClearKeyword,
-  showClearButtonRef,
-}: InputComponentType) => {
+const InputComponent = (props: InputComponentType) => {
+  const { inputRef, keywords, handleKeywordChange, handleClearKeyword, showClearButtonRef } = props;
   return (
     <nav className="app-search-input">
       {/* 搜索框 */}
@@ -155,7 +145,7 @@ const InputComponent = ({
         type="text"
         placeholder="搜索..."
         ref={inputRef}
-        value={query}
+        value={keywords}
         onChange={handleKeywordChange}
       />
       {/* 清空搜索框内容 */}
@@ -178,23 +168,12 @@ interface displayContentComponentType {
 
 /**
  * @description 组件 - 内容展示
- * @param {number} currentPage 当前页，默认第1页
- * @param {number} pageDisplayContent 当前页需要显示的内容，默认展示6条内容
- * @param {Array}  query 查询结束后的内容
- * @param {boolean} isLoading
  **/
-const DisplayContentComponent = ({
-  currentPage = 1,
-  pageDisplayContent = 6,
-  data,
-  isLoading,
-}: displayContentComponentType) => {
+const DisplayContentComponent = ({ currentPage = 1, pageDisplayContent = 6, data, isLoading }: displayContentComponentType) => {
   // 当前页
   const [current, setCurrent] = useState<number>(currentPage);
-
   // 设置总页数
   const totalPage = Math.ceil(data.length / pageDisplayContent);
-
   // 计算当前页面展示的内容
   const pageDisplayContents = data.slice((current - 1) * pageDisplayContent, current * pageDisplayContent);
 
