@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import { getAlbumResources } from "../../../api/app-album-api";
 
@@ -26,14 +26,11 @@ function ClassificationPage() {
   // 获取分类背景图资源时出现错误
   const [error, setError] = useState<Error | null>(null);
 
-  const [loading, setLoading] = useState<boolean>(true);
-
   // 请求分类背景图资源
   const fetchResults = async () => {
     const { results, error } = await getAlbumResources<ClassificationResultsType>();
     setData(results);
     setError(error);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -95,17 +92,22 @@ function ClassificationPage() {
       </header>
       {/* 图片分类目录区 */}
       <section className="app-album-classification-container" ref={containerRef}>
-        {data.map((item) => (
-          <article
-            key={item.key}
-            className="app-album-classification-content-item"
-            onClick={() => handleNavigate(item.key)}
-          >
-            {loading && <div className="app-album-classification-loading">Loading...</div>}
-            {<div style={{ opacity: loading ? 0 : 1, backgroundImage: `URL(${item.url})` }}></div>}
-            <div>{item.title}</div>
-          </article>
-        ))}
+        {error ? (
+          <article className="app-album-classification-content-item">{error.message}</article>
+        ) : (
+          <Suspense fallback={<div>loading...</div>}>
+            {data.map((item) => (
+              <article
+                className="app-album-classification-content-item"
+                key={item.key}
+                onClick={() => handleNavigate(item.key)}
+              >
+                <div style={{ backgroundImage: `URL(${item.url})` }}></div>
+                <div>{item.title}</div>
+              </article>
+            ))}
+          </Suspense>
+        )}
       </section>
       {/* 点击左右移动 */}
       <footer className="app-album-classification-footer">

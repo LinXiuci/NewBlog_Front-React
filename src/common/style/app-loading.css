@@ -1,131 +1,79 @@
-.App-small-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.20rem;
+/* 有动画类型的loading */
+.app-animation-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.App-loading {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
-  margin-top: 200px;
+.app-animation-loading-container {
   position: relative;
-  -webkit-animation: load 3s linear infinite;
-  animation: load 3s linear infinite;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+  perspective: 500px;
+  transform-style: preserve-3d;
 }
 
-.App-loading div {
+.app-animation-loading-container>div {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
-}
-
-.App-loading span {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+  box-sizing: border-box;
+  border-bottom: 5px solid orange;
   border-radius: 50%;
-  background: #99CC66;
-  position: absolute;
-  left: 50%;
-  margin-top: -10px;
-  margin-left: -10px;
-  -webkit-animation: changeBgColor 3s ease infinite;
-  animation: changeBgColor 3s ease infinite;
 }
 
-@-webkit-keyframes load {
+.app-animation-loading-container>div:nth-child(1) {
+  border-color: #0097e6;
+  animation: move1 1.2s linear -.8s infinite;
+}
+
+.app-animation-loading-container>div:nth-child(2) {
+  border-color: #8c7ae6;
+  animation: move2 1.2s linear -.4s infinite;
+}
+
+.app-animation-loading-container>div:nth-child(3) {
+  border-color: #e1b12c;
+  animation: move3 1.2s linear infinite;
+}
+
+@keyframes move1 {
   0% {
-    -webkit-transform: rotate(0deg);
-  }
-
-  33.3% {
-    -webkit-transform: rotate(120deg);
-  }
-
-  66.6% {
-    -webkit-transform: rotate(240deg);
+    transform: rotateX(35deg) rotateY(-45deg) rotate(0);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
+    transform: rotateX(35deg) rotateY(-45deg) rotate(360deg);
   }
 }
 
-@keyframes load {
+
+@keyframes move2 {
   0% {
-    -webkit-transform: rotate(0deg);
-  }
-
-  33.3% {
-    -webkit-transform: rotate(120deg);
-  }
-
-  66.6% {
-    -webkit-transform: rotate(240deg);
+    transform: rotateX(50deg) rotateY(10deg) rotate(0);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
+    transform: rotateX(50deg) rotateY(10deg) rotate(360deg);
   }
 }
 
-@-webkit-keyframes changeBgColor {
+@keyframes move3 {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotate(0);
+  }
 
-  0%,
   100% {
-    background: #99CC66;
-  }
-
-  33.3% {
-    background: #FFFF66;
-  }
-
-  66.6% {
-    background: #FF6666;
+    transform: rotateX(35deg) rotateY(55deg) rotate(360deg);
   }
 }
 
-@keyframes changeBgColor {
 
-  0%,
-  100% {
-    background: #99CC66;
-  }
-
-  33.3% {
-    background: #FFFF66;
-  }
-
-  66.6% {
-    background: #FF6666;
-  }
-}
-
-.App-loading div:nth-child(2) {
-  -webkit-transform: rotate(120deg);
-  transform: rotate(120deg);
-}
-
-.App-loading div:nth-child(3) {
-  -webkit-transform: rotate(240deg);
-  transform: rotate(240deg);
-}
-
-.App-loading div:nth-child(2) span {
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-}
-
-.App-loading div:nth-child(3) span {
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-}
-
-
-/*  */
+/* 文本类型的loading */
 .app-text-loading span {
   display: inline-block;
   animation: app-text-loading ease 1s infinite alternate;

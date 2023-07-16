@@ -51,7 +51,7 @@ function AppHome() {
     let currnetIndex = index + 1;
     //  当“currnetIndex >= introduction.length”时，循环切换到第一个
     if (currnetIndex >= introduction.length) currnetIndex = 0;
-    
+
     setIndex(currnetIndex);
   };
 
@@ -163,12 +163,7 @@ function AppHome() {
 
           {/* 时间 */}
           <article className="app-home-show-time">
-            <span>
-              <AppIcon name="time-outline" size="small"></AppIcon>
-            </span>
-            <span>
-              {time.hour}:{time.minute > 10 ? time.minute : "0" + time.minute}
-            </span>
+            {time.hour}:{time.minute > 10 ? time.minute : "0" + time.minute}
           </article>
         </section>
       </section>

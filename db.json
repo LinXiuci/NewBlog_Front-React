@@ -1,5 +1,5 @@
 {
-  "user": {
+  "user-api": {
     "author": "Venchi Classmate",
     "avatar": "https://raw.githubusercontent.com/LinXiuci/image/main/img/logo.jpg",
     "introduction": [
@@ -25,7 +25,7 @@
       }
     ]
   },
-  "articles": [
+  "articles-api": [
     {
       "key": "1",
       "title": "我做了一个手写春联小网页，祝大家IKUN年暴富1",
@@ -463,5 +463,6 @@
         }
       ]
     }
-  ]
+  ],
+  "app-content-api": []
 }

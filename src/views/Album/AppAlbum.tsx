@@ -52,7 +52,7 @@ function AppAlbum() {
 
   useEffect(() => {
     showBanner(currentIndex);
-    const timeout = setInterval(nextBanner, 15000);
+    const timeout = setInterval(nextBanner, 5000);
     // 避免在窗口大小变化时频繁地触发轮播逻辑
     const handleResize = () => showBanner(currentIndex);
     window.addEventListener("resize", handleResize);
@@ -62,20 +62,23 @@ function AppAlbum() {
     };
   }, [currentIndex]);
 
-  // if (error) {
-  //   return <section>Error:{error.message}</section>;
-  // }
   return (
     <main className="app-album">
       {/* banner 区 */}
       <section className="app-album-banner-container" ref={bannerContainerRef}>
-        {data.map((item) => (
-          <article
-            key={item.key}
-            style={{ backgroundImage: `URL(${item.url})` }}
-            className="app-album-banner"
-          ></article>
-        ))}
+        {error ? (
+          <article className="app-album-banner">{error.message}</article>
+        ) : (
+          <>
+            {data.map((item) => (
+              <article
+                key={item.key}
+                style={{ backgroundImage: `URL(${item.url})` }}
+                className="app-album-banner"
+              ></article>
+            ))}
+          </>
+        )}
       </section>
       {/* 作品展示区 */}
       <section className="app-album-works-display-container">
