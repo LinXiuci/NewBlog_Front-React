@@ -90,7 +90,7 @@
     width: 18px;
     height: 2px;
     transition: 0.5s;
-    background: var(--text-tags);
+    background: var(--app-text-tags);
 }
 
 .app-search-clear>span:hover {
@@ -108,13 +108,13 @@
 
 /* 搜索结果 */
 .app-search-results>li {
-    color: var(--text-tags);
+    color: var(--app-text-tags);
     transition: 1s;
     padding: 0.02rem 0.1rem;
 }
 
 .app-search-results>li:hover {
-    color: var(--default-text-color);
+    color: var(--app-text-color);
     border-radius: 0.05rem;
     background: var(--app-text-hover);
 }

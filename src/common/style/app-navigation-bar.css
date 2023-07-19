@@ -154,6 +154,7 @@ ion-icon {
         overflow-y: scroll;
         transition: 0.3s;
         background: var(--app-nav-background);
+        backdrop-filter: blur(0.1rem);
     }
 
     .app-nav-menu li {
@@ -191,7 +192,7 @@ ion-icon {
         position: relative;
         /* 固定位置，禁止 :hover （第74行代码）*/
         transform: translate(-50%, 0%);
-        border-radius: 0.30rem;
+        border-radius: 0.20rem;
         background: var(--app-card);
         overflow: hidden;
     }

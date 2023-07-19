@@ -96,11 +96,11 @@
 }
 
 .app-album-classification-footer>button:nth-child(1).active {
-    color: var(--text-tags);
+    color: var(--app-text-tags);
 }
 
 .app-album-classification-footer>button:nth-child(2).active {
-    color: var(--text-tags);
+    color: var(--app-text-tags);
 }
 
 .app-album-classification-footer>button:hover {

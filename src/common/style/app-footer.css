@@ -26,7 +26,7 @@
 
 .app-footer-item p,
 .app-footer-item a {
-    color: var(--text-tags);
+    color: var(--app-text-tags);
 }
 
 .app-footer-item a {

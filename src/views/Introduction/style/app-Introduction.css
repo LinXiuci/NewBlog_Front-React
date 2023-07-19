@@ -1,0 +1,159 @@
+.introduction-main {
+    position: relative;
+    width: 100%;
+    height: auto;
+    perspective: 10px;
+    transition: perspective 3s ease-in-out;
+}
+
+/* 文字控制 */
+.introduction-text-wraper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    transform-style: preserve-3d;
+    font-size: 2em;
+}
+
+.introduction-main:hover {
+    perspective: 2800px;
+}
+
+.introduction-text-wraper span {
+    writing-mode: vertical-rl;
+    color: aliceblue;
+    font-family: cursive;
+}
+
+/* 个人简介 */
+.introduction-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+        "item-1 item-1 item-2 item-3 item-4 item-4"
+        "item-1 item-1 item-5 item-6 item-6 item-7"
+        "item-8 item-8 item-5 item-9 item-9 item-7";
+    margin: 10vh auto 10vh auto;
+    width: 90%;
+    height: 100%;
+    gap: 0.15rem;
+    z-index: 9;
+}
+
+.introduction-container>article {
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--app-nav-background);
+    backdrop-filter: blur(2px);
+}
+
+.item-1 {
+    grid-area: item-1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    font-weight: 900;
+    user-select: none;
+
+}
+
+.item-1>img {
+    width: 70%;
+    border-radius: 50%;
+    padding: 0.05rem;
+    border: 2px dashed var(--text-color);
+}
+
+.item-1 .introduction-name {
+    font-size: 0.5rem;
+}
+
+.item-1 .introduction-tags>span {
+    display: inline-block;
+    margin: 0.05rem 0.08rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.05rem;
+    background: var(--app-card);
+    transition: transform 0.5s ease-in-out;
+}
+
+.item-1 .introduction-tags>span:hover {
+    transform: scale(1.2);
+}
+
+.item-2 {
+    grid-area: item-2;
+}
+
+.item-3 {
+    grid-area: item-3;
+}
+
+.item-4 {
+    grid-area: item-4;
+}
+
+.item-5 {
+    grid-area: item-5;
+}
+
+.item-6 {
+    grid-area: item-6;
+}
+
+.item-7 {
+    grid-area: item-7;
+}
+
+.item-8 {
+    grid-area: item-8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-9 {
+    grid-area: item-9;
+}
+
+
+@media all and (max-width: 768px) {
+
+    /* 个人简介 */
+    .introduction-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "item-1 item-1 item-1 item-1 "
+            "item-2 item-2 item-2 item-2 "
+            "item-3 item-4 item-5 item-6 "
+            "item-7 item-8 item-8 item-9";
+    }
+
+    .item-1>img {
+        width: 60%;
+    }
+
+}
+
+
+@media all and (max-width: 576px) {
+
+    /* 个人简介 */
+    .introduction-container {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "item-1 item-1 item-1 item-1 "
+            "item-2 item-2 item-2 item-2 "
+            "item-3 item-4 item-5 item-6 "
+            "item-8 item-8 item-8 item-8"
+            "item-7 item-7 item-9 item-9";
+
+    }
+}

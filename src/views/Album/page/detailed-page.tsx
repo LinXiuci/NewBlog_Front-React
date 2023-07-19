@@ -121,14 +121,14 @@ function DetailedPage() {
       </article>
       <footer className="app-album-detial-page-footer">
         <button
-          style={{ color: isPreviousDisabled ? "var(--text-tags)" : "" }}
+          style={{ color: isPreviousDisabled ? "var(--app-text-tags)" : "" }}
           onClick={handlePreviousClick}
           disabled={isPreviousDisabled}
         >
           &lt;
         </button>
         <button
-          style={{ color: isNextDisabled ? "var(--text-tags)" : "" }}
+          style={{ color: isNextDisabled ? "var(--app-text-tags)" : "" }}
           onClick={handleNextClick}
           disabled={isNextDisabled}
         >

@@ -12,6 +12,7 @@ import "./common/style/index.css";
 // 使用 configureResponsiveLayout 函数
 configureResponsiveLayout(document, window);
 
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
