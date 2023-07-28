@@ -1,4 +1,5 @@
-import { SetStateAction, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import "../style/app-component.css";
 
 /***
  * @description 组件 - 文字容器
@@ -35,7 +36,9 @@ function TextWraperComponent({ text }: any) {
 
     return () => {
       // 在组件卸载时清除生成的元素
-      textWraperRef.current!.innerHTML = "";
+      if (textWraperRef.current) {
+        textWraperRef.current.innerHTML = "";
+      }
     };
   }, [textWraperHeight, num]);
   return <section className="introduction-text-wraper" ref={textWraperRef}></section>;

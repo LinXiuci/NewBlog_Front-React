@@ -1,9 +1,9 @@
 import { SetStateAction, useEffect, useRef, useState } from "react";
 
 import AppFooter from "../../common/AppFooter/AppFooter";
-import "./style/app-Introduction.css";
 import TextWraperComponent from "./components/text-wraper-component";
-import { time } from "console";
+import Typewriter from "./components/typewriter-component";
+import "./style/app-Introduction.css";
 
 interface IntroductionType {
   key: string;
@@ -34,7 +34,7 @@ function AppIntroduction() {
   useEffect(() => {
     const updateData = data.map((item) => ({ ...item, tag_color: color[Math.floor(Math.random() * color.length)] }));
     const updateText = data.map((item) => ({ tag_name: item.tag_name }));
-    setText(updateText[Math.floor(Math.random() * updateData.length)].tag_name);    
+    setText(updateText[Math.floor(Math.random() * updateData.length)].tag_name);
     setData(updateData);
   }, []);
 
@@ -43,7 +43,7 @@ function AppIntroduction() {
       <TextWraperComponent text={text}></TextWraperComponent>
       <section className="introduction-container">
         <article className="item-1">
-          <img src="/logo.jpg" alt="" />
+          <img src={"/logo.jpg"} alt="" />
           <div className="introduction-name">Venchi</div>
           <p className="introduction-text">愿煦日的和风护卫着可爱的你，愿你带着满满的春笑回来</p>
           <div className="introduction-tags">
@@ -56,15 +56,16 @@ function AppIntroduction() {
         </article>
         <article className="item-2">2</article>
         <article className="item-3">3</article>
-        <article className="item-4">4</article>
+        <article className="item-4">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VenchiXie" />
+        </article>
         <article className="item-5">5</article>
-        <article className="item-6">6</article>
+        <article className="item-6">
+          <img src="https://github-readme-stats.vercel.app/api?username=VenchiXie&show_icons=true&theme=tokyonight" />
+        </article>
         <article className="item-7">7</article>
         <article className="item-8">
-          <img
-            src="https://readme-typing-svg.demolab.com?font=VT323&weight=900&size=60&duration=5000&pause=1000&center=true&vCenter=true&width=250&height=70&lines=%E8%AF%B8%E4%BA%8B%E9%A1%BA%E9%81%82"
-            alt="Typing SVG"
-          />
+          <Typewriter text={text}></Typewriter>
         </article>
         <article className="item-9">9</article>
       </section>

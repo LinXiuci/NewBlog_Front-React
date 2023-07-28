@@ -1,7 +1,7 @@
 {
   "user-api": {
     "author": "Venchi Classmate",
-    "avatar": "https://raw.githubusercontent.com/LinXiuci/image/main/img/logo.jpg",
+    "avatar": "https://github.com/VenchiXie/VenchiXie.github.io/blob/main/imgs/avatar.png?raw=true",
     "introduction": [
       {
         "key": "1",
@@ -224,7 +224,7 @@
   "banner-api": [
     {
       "key": "1",
-      "url": "https://venchixie.github.io/imgs/banner1.jpg"
+      "url": "https://raw.githubusercontent.com/VenchiXie/VenchiXie.github.io/main/imgs/%E5%B0%8F%E6%97%B6%E5%80%99%E7%9A%84%E8%AE%B0%E5%BF%86.png"
     },
     {
       "key": "2",
