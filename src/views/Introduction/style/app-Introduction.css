@@ -2,13 +2,11 @@
     position: relative;
     width: 100%;
     height: auto;
-    /* 查看 ../style/app-component.css */
     perspective: 10px;
     transition: perspective 3s ease-in-out;
     overflow-x: hidden;
     z-index: 0;
 }
-
 
 
 /*----------------------------- 个人简介容器 ----------------------------- */
@@ -126,6 +124,65 @@
 }
 
 
+
+/*----------------------------- 文字控制容器 ----------------------------- */
+.introduction-text-wraper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2em;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+.introduction-main:hover {
+    perspective: 2800px;
+}
+
+.introduction-text-wraper span {
+    writing-mode: vertical-rl;
+    color: aliceblue;
+    font-family: cursive;
+}
+
+
+/*----------------------------- 打字机容器 ----------------------------- */
+.typewriter {
+    font-weight: 900;
+    font-size: var(--font-size-20);
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: typing 5s steps(40, end) infinite, blink-caret .75s step-end infinite;
+    user-select: none;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 25%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange;
+    }
+}
+
 @media all and (max-width: 768px) {
 
     /* 个人简介 */
@@ -156,10 +213,6 @@
             "item-6 item-6 item-6 item-6 "
             "item-8 item-8 item-8 item-8 "
             "item-7 item-7 item-9 item-9";
-
         /* transform: translateZ(1px); */
-
     }
-
-
 }

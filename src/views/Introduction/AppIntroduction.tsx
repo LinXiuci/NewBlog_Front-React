@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useRef, useState } from "react";
+import { SetStateAction, useState, useEffect, useRef } from "react";
 
 import AppFooter from "../../common/AppFooter/AppFooter";
 import TextWraperComponent from "./components/text-wraper-component";

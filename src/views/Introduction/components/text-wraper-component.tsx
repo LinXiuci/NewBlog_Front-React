@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import "../style/app-component.css";
 
 /***
  * @description 组件 - 文字容器
@@ -44,10 +43,10 @@ function TextWraperComponent({ text }: any) {
   return <section className="introduction-text-wraper" ref={textWraperRef}></section>;
 }
 
-function getRandomInt(min: number, max: number): number {
+const getRandomInt = (min: number, max: number): number => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};
 
 export default TextWraperComponent;

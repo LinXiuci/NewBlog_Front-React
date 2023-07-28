@@ -1,5 +1,3 @@
-import "../style/app-component.css";
-
 /**
  * 组件-打字机
  *  */
