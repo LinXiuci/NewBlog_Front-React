@@ -21,7 +21,7 @@ function AppAlbum() {
   // 请求 banner 资源
   const fetchResults = async () => {
     const { results, error } = await getBannerResources<bannerResourcesType>();
-    setData(results || backupBannerResources);
+    setData(backupBannerResources || results);
     setError(error);
   };
 

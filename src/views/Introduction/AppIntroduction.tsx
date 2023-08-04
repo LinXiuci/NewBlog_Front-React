@@ -43,7 +43,7 @@ function AppIntroduction() {
       <TextWraperComponent text={text}></TextWraperComponent>
       <section className="introduction-container">
         <article className="item-1">
-          <img src={"https://github.com/VenchiXie/VenchiXie.github.io/blob/main/imgs/avatar.png?raw=true"} alt="" />
+          <img src="https://github.com/VenchiXie/VenchiXie.github.io/blob/main/imgs/avatar.png?raw=true" alt="" />
           <div className="introduction-name">Venchi</div>
           <p className="introduction-text">愿煦日的和风护卫着可爱的你，愿你带着满满的春笑回来</p>
           <div className="introduction-tags">

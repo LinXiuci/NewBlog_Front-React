@@ -29,7 +29,7 @@ function ClassificationPage() {
   // 请求分类背景图资源
   const fetchResults = async () => {
     const { results, error } = await getAlbumResources<ClassificationResultsType>();
-    setData(results || backupAlbumResources);
+    setData(backupAlbumResources || results);
     setError(error);
   };
 
