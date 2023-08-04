@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect, useRef } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
-import { getAlbumResources } from "../../../api/app-album-api";
 
+import { getAlbumResources, backupAlbumResources } from "../../../api/app-album-api";
 import "../css/classification-page.css";
 
 interface ClassificationResultsType {
@@ -29,13 +29,12 @@ function ClassificationPage() {
   // 请求分类背景图资源
   const fetchResults = async () => {
     const { results, error } = await getAlbumResources<ClassificationResultsType>();
-    setData(results);
+    setData(results || backupAlbumResources);
     setError(error);
   };
 
   useEffect(() => {
     fetchResults();
-    console.log(error);
   }, []);
 
   // 操作图片分类目录区的元素
@@ -97,11 +96,7 @@ function ClassificationPage() {
         ) : (
           <Suspense fallback={<div>loading...</div>}>
             {data.map((item) => (
-              <article
-                className="app-album-classification-content-item"
-                key={item.key}
-                onClick={() => handleNavigate(item.key)}
-              >
+              <article className="app-album-classification-content-item" key={item.key} onClick={() => handleNavigate(item.key)}>
                 <div style={{ backgroundImage: `URL(${item.url})` }}></div>
                 <div>{item.title}</div>
               </article>

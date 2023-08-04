@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, NavigateFunction, useSearchParams } from "react-router-dom";
 
-import { getImageResources } from "../../../api/app-album-api";
-
-import "../css/detailed-page.css";
 import LazyImageComponent from "../components/lazyImage-component";
+import { getImageResources } from "../../../api/app-album-api";
+import "../css/detailed-page.css";
 interface DetailedResultType {
   key: string;
   title: string;

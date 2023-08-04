@@ -1,8 +1,8 @@
-import { SetStateAction, useState, useEffect, useRef } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 
 import AppFooter from "../../common/AppFooter/AppFooter";
 import TextWraperComponent from "./components/text-wraper-component";
-import Typewriter from "./components/typewriter-component";
+import TypewriterComponent from "./components/typewriter-component";
 import "./style/app-Introduction.css";
 
 interface IntroductionType {
@@ -36,14 +36,14 @@ function AppIntroduction() {
     const updateText = data.map((item) => ({ tag_name: item.tag_name }));
     setText(updateText[Math.floor(Math.random() * updateData.length)].tag_name);
     setData(updateData);
-  }, []);
+  }, [color]);
 
   return (
     <main className="introduction-main">
       <TextWraperComponent text={text}></TextWraperComponent>
       <section className="introduction-container">
         <article className="item-1">
-          <img src={"/logo.jpg"} alt="" />
+          <img src={"https://github.com/VenchiXie/VenchiXie.github.io/blob/main/imgs/avatar.png?raw=true"} alt="" />
           <div className="introduction-name">Venchi</div>
           <p className="introduction-text">愿煦日的和风护卫着可爱的你，愿你带着满满的春笑回来</p>
           <div className="introduction-tags">
@@ -57,15 +57,15 @@ function AppIntroduction() {
         <article className="item-2">2</article>
         <article className="item-3">3</article>
         <article className="item-4">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VenchiXie" />
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VenchiXie" alt="" />
         </article>
         <article className="item-5">5</article>
         <article className="item-6">
-          <img src="https://github-readme-stats.vercel.app/api?username=VenchiXie&show_icons=true&theme=tokyonight" />
+          <img src="https://github-readme-stats.vercel.app/api?username=VenchiXie&show_icons=true&theme=tokyonight" alt="" />
         </article>
         <article className="item-7">7</article>
         <article className="item-8">
-          <Typewriter text={text}></Typewriter>
+          <TypewriterComponent text={text}></TypewriterComponent>
         </article>
         <article className="item-9">9</article>
       </section>

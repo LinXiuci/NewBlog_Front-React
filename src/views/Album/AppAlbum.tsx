@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, NavigateFunction } from "react-router-dom";
-import { getBannerResources } from "../../api/banner-api";
+import { getBannerResources, backupBannerResources } from "../../api/app-banner-api";
 import "./css/app-album.css";
 
 interface bannerResourcesType {
@@ -21,7 +21,7 @@ function AppAlbum() {
   // 请求 banner 资源
   const fetchResults = async () => {
     const { results, error } = await getBannerResources<bannerResourcesType>();
-    setData(results);
+    setData(results || backupBannerResources);
     setError(error);
   };
 
@@ -43,12 +43,12 @@ function AppAlbum() {
   };
 
   // 下一个 Banner
-  const nextBanner = (): void => {
+  const nextBanner = useCallback(() => {
     let newIndex = currentIndex + 1;
     // 当索引 >= 图片的数据时，索引重置
     if (newIndex >= (bannerContainerRef.current?.childElementCount ?? 0)) newIndex = 0;
     setCurrentIndex(newIndex);
-  };
+  }, [currentIndex]);
 
   useEffect(() => {
     showBanner(currentIndex);
@@ -60,7 +60,7 @@ function AppAlbum() {
       clearInterval(timeout);
       window.removeEventListener("resize", handleResize);
     };
-  }, [currentIndex]);
+  }, [currentIndex, nextBanner]);
 
   return (
     <main className="app-album">
@@ -71,11 +71,7 @@ function AppAlbum() {
         ) : (
           <>
             {data.map((item) => (
-              <article
-                key={item.key}
-                style={{ backgroundImage: `URL(${item.url})` }}
-                className="app-album-banner"
-              ></article>
+              <article key={item.key} style={{ backgroundImage: `URL(${item.url})` }} className="app-album-banner"></article>
             ))}
           </>
         )}

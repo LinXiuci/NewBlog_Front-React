@@ -1,31 +1,22 @@
 import { CSSProperties, useEffect, useRef, useState } from "react";
-import AppIcon from "../../common/AppIcon/AppIcon";
 
-// 导入个人信息API
 import personalInformationAPI from "../../api/personalInformationAPI";
-import "./css/app-home.css";
 import AppFooter from "../../common/AppFooter/AppFooter";
+import "./css/app-home.css";
 
 interface personalInformationType {
   author: string;
   avatar: string;
-  introduction: (
-    | {
-        key: number;
-        title: string;
-        text: string;
-        name?: undefined;
-      }
-    | {
-        key: string;
-        name: string;
-        text: string;
-        title?: undefined;
-      }
-  )[];
+  introduction: [
+    {
+      key: number;
+      title: string;
+      text: string;
+    }
+  ];
 }
 
-type timeInfoType = {
+interface timeInfoType {
   year: number;
   month: number;
   date: number;
@@ -33,14 +24,14 @@ type timeInfoType = {
   minute: number;
   second: number;
   week: string;
-};
+}
 
 /***
  * @description 公共页面 - 首页
  *  */
 function AppHome() {
   // 作者名、头像、个人简介
-  const { author, avatar, introduction }: personalInformationType = personalInformationAPI;
+  const { author, introduction }: personalInformationType = personalInformationAPI;
 
   // 下一页索引
   const [index, setIndex] = useState<number>(0);
