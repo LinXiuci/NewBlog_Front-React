@@ -7,7 +7,6 @@ import AppNavigationBar from "./common/AppNavigationBar/AppNavigationBar";
 import AppSetup from "./common/AppSetup/AppSetup";
 // 导入节流函数
 import throttle from "./utils/throttle";
-import AppFooter from "./common/AppFooter/AppFooter";
 
 export default function App() {
   // 获取header元素
@@ -27,9 +26,6 @@ export default function App() {
     let currentScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     // 获取导航栏的高度
     const headerHeight: number = header.current?.offsetHeight ?? 0;
-
-    // console.log(currentScrollTop);
-    // console.log("old", oldScrollTop);
 
     // 当当前的滚动位置 > 导航栏高度时，则添加样式 ；
     if (currentScrollTop > headerHeight) {
@@ -61,8 +57,6 @@ export default function App() {
 
   return (
     <>
-      {/* 搜索遮罩 */}
-      {/* <AppSearch searchRef={searchRef} onCloseSearch={onCloseSearch}></AppSearch> */}
       {/* 侧边小工具 */}
       <AppSetup oldScrollTop={oldScrollTop}></AppSetup>
       <header className="app-header" ref={header}>

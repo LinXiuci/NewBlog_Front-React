@@ -46,8 +46,8 @@
 }
 
 .item-1>img {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 85%;
+    height: 85%;
     border-radius: 50%;
     padding: 0.05rem;
     border: 2px dashed var(--text-color);

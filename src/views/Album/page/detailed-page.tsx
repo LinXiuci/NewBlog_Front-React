@@ -105,10 +105,11 @@ function DetailedPage() {
   const isNextDisabled = currentPage === totalPage;
   return (
     <main className="app-album-detail-page">
+      {/* 导航区 */}
       <header className="app-album-detial-page-header">
         <span onClick={() => navigate(-1)}>&gt;</span>
       </header>
-      {/* 展示图片 */}
+      {/* 展示图片区 */}
       <article className="app-album-image-container">
         {pageDisplayContent.map(({ key, src }, index) => (
           <LazyImageComponent
@@ -119,6 +120,7 @@ function DetailedPage() {
           ></LazyImageComponent>
         ))}
       </article>
+      {/* 分布按扭区 */}
       <footer className="app-album-detial-page-footer">
         <button
           style={{ color: isPreviousDisabled ? "var(--app-text-tags)" : "" }}
@@ -135,7 +137,6 @@ function DetailedPage() {
           &gt;
         </button>
       </footer>
-
       {/* 展示预览图片 */}
       {isOpen && (
         <article className="app-album-preview-overlay">
